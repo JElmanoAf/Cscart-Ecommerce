@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<addon scheme='2.0'>
+    <id>cscart_points</id>
+    <version>1.0</version>
+    <name>Merkle Loyalty Points</name>
+    <description>Loyalty points</description>
+    <priority>100500</priority>
+
+    <settings>
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="header_general">
+                        <name>Settings</name>
+                        <type>header</type>
+                        <default_value>cscart_points</default_value>
+                    </item>
+                    <item id="points_regist">
+                        <name>Number of points in the record</name>
+                        <type>input</type>
+                        <default_value>20</default_value>
+                    </item>
+                    <item id="points_purchase">
+                        <name>Number of points on purchase</name>
+                        <type>input</type>
+                        <default_value>10</default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+
+
+    <queries>
+        <item for="install">
+            CREATE TABLE IF NOT EXISTS `cscart`.`cscart_points` (
+            `points_id` INT(8) NOT NULL,
+            `fk_user_id` MEDIUMINT(8) NOT NULL,
+            `points_total` INT(8) NOT NULL,
+            `points_data` DATE NOT NULL,
+            PRIMARY KEY (`points_id`))
+        </item>
+    </queries>
+
+</addon>
